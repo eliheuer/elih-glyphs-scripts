@@ -1,7 +1,7 @@
 #MenuTitle: Get info from selected
 # -*- coding: utf-8 -*-
 __doc__="""
-Get info from selected
+Get anchor info from selected
 """
 
 thisFont = Glyphs.font  # Active font
@@ -23,22 +23,8 @@ def allAnchorsOfThisGlyph( thisGlyph ):
             anchorDict[thisAnchor.name].append( thisAnchorInfo )
     return anchorDict
 
-def addAnchor( thisGlyph )
-    anchorsAdded = []
-    thisWidth = thisLayer.width
-    newAnchorPosition = averagePosition( allAnchorDict[newAnchorName], thisWidth )
-    newAnchor = GSAnchor()
-    newAnchor.name = top
-    newAnchor.position = NSPoint(400, 600)
-    thisLayer.addAnchor_( newAnchor )
-    anchorsAdded.append( newAnchorName )
-    reportString += "  %s: %s\n" % ( thisLayer.name, ", ".join(anchorsAdded) )
-    print reportString
-
 # Do stuff
-print(" ")
-print("Getting anchor info from selected glyphs ###############")
-print(" ")
+print("Getting anchor info from selected glyphs:")
 thisFont.disableUpdateInterface() # suppresses UI updates in Font View
 
 for thisLayer in listOfSelectedLayers:
@@ -48,12 +34,6 @@ for thisLayer in listOfSelectedLayers:
     allAnchorDict = allAnchorsOfThisGlyph( thisGlyph )
     print(allAnchorDict)
 
-    thisGlyph.beginUndo() # begin undo grouping
-    addAnchor(thisGlyph)
-    thisGlyph.endUndo()   # end undo grouping
-
-print(" ")
-print("Done ###################################################")
-print(" ")
+print("Done")
 
 thisFont.enableUpdateInterface() # re-enables UI updates in Font View
